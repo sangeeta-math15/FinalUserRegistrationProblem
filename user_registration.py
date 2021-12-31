@@ -68,3 +68,13 @@ if __name__ == '__main__':
     except InputError as e:
         print(str(e))
 
+
+    phone_number_input = input("Enter phone number:")
+    matched_input = user_reg.phone_number_validation(phone_number_input)
+    try:
+        if not matched_input:
+            raise InputError("Enter the valid phone number")
+    except InputError as e:
+        print(str(e))
+
+
