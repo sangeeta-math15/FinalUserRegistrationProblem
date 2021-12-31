@@ -9,6 +9,7 @@ from user_registrationException import InputError
 
 FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$"
 LAST_NAME = "^[A-Z]{1}[a-z]{2,}$"
+EMAIL_ADDRESS = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z]*\\.(co|com.au|in|net|in|com.com|com|)$"
 
 
 class UserRegistration:
@@ -36,6 +37,14 @@ class UserRegistration:
         if re.match(LAST_NAME, lname_input):
             return True
 
+    def email_validation(self, email_input):
+        """
+        :param email_input:
+        :return:
+        """
+        if re.match(EMAIL_ADDRESS, email_input):
+            return True
+
 
 if __name__ == '__main__':
 
@@ -59,7 +68,6 @@ if __name__ == '__main__':
     except InputError as e:
         print(str(e))
 
-
     emial_input = input("Enter email address:")
     matched_input = user_reg.email_validation(emial_input)
     try:
@@ -67,4 +75,3 @@ if __name__ == '__main__':
             raise InputError("Enter the valid email")
     except InputError as e:
         print(str(e))
-
