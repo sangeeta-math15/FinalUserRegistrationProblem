@@ -58,3 +58,13 @@ if __name__ == '__main__':
             raise InputError(" Enter the last name with minimum three characters ")
     except InputError as e:
         print(str(e))
+
+
+    emial_input = input("Enter email address:")
+    matched_input = user_reg.email_validation(emial_input)
+    try:
+        if not matched_input:
+            raise InputError("Enter the valid email")
+    except InputError as e:
+        print(str(e))
+
